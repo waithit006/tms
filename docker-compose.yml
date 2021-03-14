@@ -1,0 +1,51 @@
+
+version: "3.2"
+services:      
+    tms_api:
+        build: .
+        ports:
+            - 3001:3001
+        volumes:
+            - .:/usr/src/app
+            - dependecies:/usr/src/app/node_modules
+        # networks:
+        #     - hotelnetwork
+        links:
+            - db_tms
+        depends_on: 
+            - db_tms
+        environment:
+            NODE_ENV: development
+            REDIS_URL: redis://cache
+    db_tms:
+        image: mysql:5.7
+        container_name: db_tms
+        # networks:
+        #     - hotelnetwork
+        restart: always
+        environment:
+            MYSQL_ROOT_PASSWORD: root
+            MYSQL_DATABASE: tms
+            # MYSQL_USER: root
+            # MYSQL_PASSWORD: root
+        # command: --default-authentication-plugin=mysql_native_password
+        ports:
+            - 3308:3306
+    phpmyadmin_service_hotel:
+        image: phpmyadmin/phpmyadmin
+        # networks:
+        #     - hotelnetwork
+        depends_on: 
+            - db_tms
+        ports:
+            - "8005:80"
+        links:
+            - "db_tms"
+        environment:
+            MYSQL_USERNAME: root
+            MYSQL_ROOT_PASSWORD: root
+            PMA_HOST: db_tms
+            UPLOAD_LIMIT: 3000000000
+volumes:
+    dependecies:
+
