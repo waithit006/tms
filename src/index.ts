@@ -7,7 +7,7 @@ import { createConnection } from "typeorm";
 
 const app: Application = express()
 
-const port: number = 3001 || process.env.PORT
+const port: number = 4001 || process.env.PORT
 
 createConnection().then(async connection => {
     const httpServer = createServer(app);

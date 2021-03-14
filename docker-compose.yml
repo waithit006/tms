@@ -4,7 +4,7 @@ services:
     tms_api:
         build: .
         ports:
-            - 3001:3001
+            - 4001:4001
         volumes:
             - .:/usr/src/app
             - dependecies:/usr/src/app/node_modules
