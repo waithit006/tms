@@ -31,7 +31,7 @@ services:
         # command: --default-authentication-plugin=mysql_native_password
         ports:
             - 3308:3306
-    phpmyadmin_service_hotel:
+    phpmyadmin_service_tms:
         image: phpmyadmin/phpmyadmin
         # networks:
         #     - hotelnetwork

@@ -5,6 +5,7 @@
     "main": "index.js",
     "dependencies": {
         "@types/socket.io": "^2.1.13",
+        "config": "^3.3.6",
         "cross-env": "^7.0.3",
         "express": "^4.17.1",
         "mysql": "^2.18.1",

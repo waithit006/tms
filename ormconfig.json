@@ -1,0 +1,13 @@
+{
+    "type": "mysql",
+    "host": "db_tms",
+    "port": 3306,
+    "username": "root",
+    "password": "root",
+    "database": "tms",
+    "synchronize": true,
+    "logging": true,
+    "entities": [
+       "src/entity/*.ts"
+    ]
+ }
